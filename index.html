@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>51 Clapham High Street — Desktop Investment Analysis &amp; Valuation Support Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --gold: #C9A45C;
+        --gold-soft: #D9B978;
+        --gold-dim: rgba(201, 164, 92, 0.18);
+        --bg-dark: #0b1220;
+        --bg-panel: #0e1626;
+        --bg-sidebar: #070d1a;
+        --bg-card: #121c2e;
+        --text-main: #ECE4D2;
+        --text-muted: #8A8374;
+        --text-faint: rgba(236, 228, 210, 0.55);
+        --border-color: rgba(255, 255, 255, 0.07);
+        --hairline-gold: rgba(201, 164, 92, 0.35);
+        --success: #4F9C78;
+        --warning: #C69A4A;
+        --danger: #B8564A;
+        --info: #7C99C0;
+        --font-serif: 'Playfair Display', Georgia, serif;
+        --primary-gradient: linear-gradient(90deg, var(--gold) 0%, var(--gold-soft) 100%);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-main);
+        line-height: 1.6;
+        font-size: 15px
+    }
+
+    a {
+        color: var(--gold-soft);
+        text-decoration: none
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        background: var(--bg-sidebar);
+        border-right: 1px solid var(--border-color);
+        padding: 28px 22px;
+        overflow-y: auto
+    }
+
+    .sidebar .brand {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--gold)
+    }
+
+    .sidebar .tier {
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 4px;
+        margin-bottom: 28px
+    }
+
+    .sidebar nav a {
+        display: block;
+        color: var(--text-faint);
+        font-size: 13.5px;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04)
+    }
+
+    .sidebar nav a:hover {
+        color: var(--gold-soft)
+    }
+
+    .content-area {
+        margin-left: 250px
+    }
+
+    .topnav {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(11, 18, 32, 0.82);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 14px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .topnav .crumb {
+        font-size: 12px;
+        color: var(--text-muted);
+        letter-spacing: 0.5px
+    }
+
+    .cta-gold {
+        background: var(--primary-gradient);
+        color: #1a1208;
+        font-weight: 600;
+        padding: 9px 18px;
+        border-radius: 0;
+        font-size: 13px;
+        border: none;
+        cursor: pointer
+    }
+
+    .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 40px
+    }/* HERO */
+
+    .hero {
+        padding: 60px 0 40px;
+        border-bottom: 1px solid var(--border-color)
+    }
+
+    .live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold-soft);
+        border: 1px solid var(--hairline-gold);
+        padding: 5px 12px
+    }
+
+    .live-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--success);
+        display: inline-block
+    }
+
+    .hero h1 {
+        font-family: var(--font-serif);
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 1.15;
+        margin: 22px 0 10px
+    }
+
+    .hero .sub {
+        font-size: 15px;
+        color: var(--text-muted);
+        max-width: 760px
+    }
+
+    .hero .disclaimer {
+        font-size: 12.5px;
+        color: var(--text-faint);
+        max-width: 780px;
+        margin-top: 14px;
+        border-left: 2px solid var(--hairline-gold);
+        padding-left: 14px;
+        font-style: italic
+    }
+
+    .cover-meta {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--border-color);
+        margin-top: 34px;
+        border: 1px solid var(--border-color)
+    }
+
+    .cover-meta .tile {
+        background: var(--bg-panel);
+        padding: 20px 18px;
+        position: relative
+    }
+
+    .cover-meta .tile::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--gold)
+    }
+
+    .cover-meta .v {
+        font-family: var(--font-serif);
+        font-size: 26px;
+        font-weight: 500
+    }
+
+    .cover-meta .l {
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 4px
+    }
+
+    .cover-meta .s {
+        font-size: 11.5px;
+        color: var(--gold-soft);
+        margin-top: 3px
+    }
+
+    .hero-photos {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 12px;
+        margin-top: 34px
+    }
+
+    .hero-photos .photo-primary {
+        position: relative;
+        overflow: hidden;
+        background: #000;
+        border: 1px solid var(--border-color);
+        min-height: 340px
+    }
+
+    .hero-photos .photo-primary img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.85;
+        display: block
+    }
+
+    .hero-photos .photo-secondary {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 12px;
+        min-height: 340px
+    }
+
+    .hero-photos .photo-secondary > div {
+        position: relative;
+        overflow: hidden;
+        background: #000;
+        border: 1px solid var(--border-color)
+    }
+
+    .hero-photos .photo-secondary img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.85;
+        display: block
+    }
+
+    .hero-photo-caption {
+        position: absolute;
+        left: 16px;
+        bottom: 14px;
+        right: 16px;
+        z-index: 2;
+        color: var(--gold);
+        font-family: var(--font-serif);
+        font-size: 18px;
+        font-weight: 500;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9)
+    }
+
+    .hero-photo-caption .sub {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-main);
+        margin-top: 3px;
+        font-family: 'Inter', sans-serif
+    }
+
+    .chart-wrap {
+        margin: 20px 0
+    }
+
+    .chart-wrap .ct {
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 8px;
+        font-weight: 600
+    }
+
+    @media (max-width: 1024px) {
+        .hero-photos {
+            grid-template-columns: 1fr
+        }
+    }
+
+    .chips {
+        margin: 16px 0 4px
+    }
+
+    .chip {
+        display: inline-block;
+        border: 1px solid var(--hairline-gold);
+        color: var(--gold-soft);
+        font-size: 10.5px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 11px;
+        margin: 0 8px 8px 0
+    }
+
+    .toc {
+        list-style: none
+    }
+
+    .toc li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-color)
+    }
+
+    .toc .t {
+        font-family: var(--font-serif);
+        font-size: 16px;
+        color: #16203A;
+        font-weight: 500
+    }
+
+    .toc .d {
+        font-size: 12.5px;
+        color: var(--text-faint);
+        margin-top: 2px
+    }
+
+    .facts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 28px
+    }
+
+    .facts .fr {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 13px
+    }
+
+    .facts .fr .k {
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 11px
+    }
+
+    .facts .fr .v {
+        color: #16203A;
+        font-weight: 600;
+        text-align: right
+    }/* PAGE blocks (white paper) */
+
+    .page {
+        background: #FFFFFF;
+        color: #16203A;
+        margin: 34px 0;
+        padding: 44px 48px;
+        border-radius: 2px;
+        --gold: #A88540;
+        --gold-soft: #C9A45C;
+        --text-main: #16203A;
+        --text-muted: #6A6A68;
+        --text-faint: rgba(22, 32, 58, 0.68);
+        --hairline-gold: rgba(168, 133, 64, 0.55);
+        --border-color: rgba(24, 32, 52, 0.10);
+        --success: #3F7E5E;
+        --warning: #A67B2E;
+        --danger: #94332B;
+        --info: #4A6A95;
+    }
+
+    .page .sec-title {
+        font-family: var(--font-serif);
+        font-size: 30px;
+        font-weight: 500;
+        color: #16203A;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--hairline-gold);
+        position: relative;
+        margin-bottom: 8px
+    }
+
+    .page .sec-title::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--gold)
+    }
+
+    .page .sec-kicker {
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 6px
+    }
+
+    .page h3 {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        font-weight: 500;
+        margin: 26px 0 10px;
+        color: #16203A;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 6px
+    }
+
+    .page h4 {
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 18px 0 8px
+    }
+
+    .page p {
+        margin: 10px 0;
+        color: #283250
+    }
+
+    .page .muted {
+        color: var(--text-faint);
+        font-size: 13px
+    }
+
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin: 22px 0
+    }
+
+    .kpi-card {
+        background: #FCFBF7;
+        border: 1px solid var(--border-color);
+        padding: 18px 16px;
+        position: relative
+    }
+
+    .kpi-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--gold)
+    }
+
+    .kpi-card .v {
+        font-family: var(--font-serif);
+        font-size: 26px;
+        font-weight: 600;
+        color: #16203A;
+        line-height: 1.1
+    }
+
+    .kpi-card .l {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 6px
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 14px 0;
+        font-size: 13.5px
+    }
+
+    .page th {
+        text-align: left;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--hairline-gold)
+    }
+
+    .page td {
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--border-color);
+        color: #283250;
+        vertical-align: top
+    }
+
+    .page tr:hover td {
+        background: rgba(168, 133, 64, 0.05)
+    }
+
+    .table-accent td {
+        background: rgba(168, 133, 64, 0.10);
+        font-weight: 600;
+        border-left: 3px solid var(--gold)
+    }
+
+    .card {
+        background: #FCFBF7;
+        border: 1px solid var(--border-color);
+        border-left: 3px solid var(--info);
+        padding: 18px 20px;
+        margin: 16px 0
+    }
+
+    .card.warn {
+        border-left-color: var(--warning)
+    }
+
+    .card.gold {
+        border-left-color: var(--gold)
+    }
+
+    .card.danger {
+        border-left-color: var(--danger)
+    }
+
+    .card .ct {
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 8px;
+        font-weight: 600
+    }/* trust badges */
+
+    .badge {
+        display: inline-block;
+        font-size: 9.5px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        padding: 3px 7px;
+        border-radius: 0;
+        font-weight: 600;
+        white-space: nowrap;
+        vertical-align: middle
+    }
+
+    .badge-success {
+        background: rgba(63, 126, 94, 0.14);
+        color: #2E6048;
+        border: 1px solid rgba(63, 126, 94, 0.4)
+    }
+
+    .badge-warning {
+        background: rgba(166, 123, 46, 0.14);
+        color: #8A6420;
+        border: 1px solid rgba(166, 123, 46, 0.4)
+    }
+
+    .badge-modelled {
+        background: rgba(74, 106, 149, 0.14);
+        color: #3A567E;
+        border: 1px solid rgba(74, 106, 149, 0.4)
+    }
+
+    .badge-inferred {
+        background: rgba(168, 133, 64, 0.14);
+        color: #8A6420;
+        border: 1px solid rgba(168, 133, 64, 0.4)
+    }
+
+    .badge-danger {
+        background: rgba(148, 51, 43, 0.12);
+        color: #94332B;
+        border: 1px solid rgba(148, 51, 43, 0.4)
+    }
+
+    .prov-legend {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        margin: 14px 0
+    }
+
+    .prov-legend .pi {
+        font-size: 11.5px;
+        color: #3a4258
+    }
+
+    .flag-row td {
+        background: rgba(148, 51, 43, 0.06)
+    }
+
+    .foot {
+        padding: 40px;
+        text-align: center;
+        color: var(--text-faint);
+        font-size: 12px;
+        border-top: 1px solid var(--border-color)
+    }
+
+    .heat {
+        display: grid;
+        grid-template-columns: auto repeat(3, 1fr);
+        gap: 1px;
+        background: var(--border-color);
+        border: 1px solid var(--border-color);
+        margin: 14px 0;
+        font-size: 12.5px
+    }
+
+    .heat div {
+        background: #fff;
+        padding: 8px 10px;
+        text-align: center
+    }
+
+    .heat .hh {
+        background: #FCFBF7;
+        font-weight: 600;
+        color: var(--gold)
+    }
+
+    .heat .adopt {
+        background: rgba(168, 133, 64, 0.18);
+        font-weight: 700;
+        border: 2px solid var(--gold)
+    }
+
+    @media (max-width: 1024px) {
+        .sidebar {
+            width: 0;
+            display:none
+        }
+
+        .content-area {
+            margin-left:0
+        }
+
+        .kpi-grid, .cover-meta, .prov-legend {
+            grid-template-columns: repeat(2, 1fr)
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <img src="data:image/png;base64,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" alt="SmartSource" style="max-width:172px;height:auto;display:block;margin-bottom:4px">
+        <div class="tier">Investment Intelligence</div>
+        <nav>
+            <a href="#exec">Executive Summary</a>
+            <a href="#risks">Key Risks</a>
+            <a href="#lender">Lender Considerations</a>
+            <a href="#comps">Comparables</a>
+            <a href="#sec1">1 · Terms of Reference</a>
+            <a href="#sec2">2 · Location &amp; Description</a>
+            <a href="#sec3">3 · Title, Tenure &amp; Tenancies</a>
+            <a href="#sec4">4 · Statutory &amp; Legal</a>
+            <a href="#sec5">5 · Environmental</a>
+            <a href="#sec6">6 · Market Commentary</a>
+            <a href="#sec7">7 · Valuation Opinion</a>
+            <a href="#sec8">8 · Suitability &amp; Conclusion</a>
+            <a href="#sources">Data Sources &amp; Methodology</a>
+        </nav>
+    </aside>
+
+    <div class="content-area">
+        <div class="topnav">
+            <div class="crumb">SmartSource IQ · Desktop Investment Analysis · 51 Clapham High Street SW4 7TL</div>
+            <button class="cta-gold">Download Report</button>
+        </div>
+
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="wrap">
+                <span class="live-badge">
+                    <span class="dot"></span>
+                     Live Market Data · Generated 25 June 2026
+                </span>
+                <h1>51 Clapham High Street, London SW4 7TL</h1>
+                <div class="sub">Desktop Investment Analysis &amp; Valuation Support Report — a freehold former clinic / office building on the Clapham High Street commercial pitch.</div>
+                <div class="chips">
+                    <span class="chip">Freehold</span>
+                    <span class="chip">High Street Pitch</span>
+                    <span class="chip">Vacant · Value-Add</span>
+                    <span class="chip">EPC C · MEES compliant</span>
+                </div>
+                <div class="disclaimer">This is not a formal RICS Red Book valuation. It is a desktop analysis prepared to support efficient MRICS review by surfacing sources, assumptions, conflicts and valuation logic in a structured format. No physical inspection has been undertaken and the report carries no named MRICS signature; figures are indicative and require professional verification before reliance.</div>
+                <div class="hero-photos">
+                    <div class="photo-primary">
+                        <img src="https://images1.loopnet.com/i2/CkZK9f0cIslygkrbG9lSpqvU3mHG-8gar6qL4wZABW4/116/image.jpg" alt="51 Clapham High Street frontage" loading="lazy">
+                        <div class="hero-photo-caption">
+                            51 Clapham High Street
+                            <span class="sub">Freehold Office Asset · Clapham SW4</span>
+                        </div>
+                    </div>
+                    <div class="photo-secondary">
+                        <div>
+                            <img src="https://images1.loopnet.com/i2/Q9MCaVNev9h2gt-mlXBTkJ1E7S5K-ClSQeSuI75yTZk/116/image.jpg" alt="51 Clapham High Street" loading="lazy">
+                        </div>
+                        <div>
+                            <img src="https://images1.loopnet.com/i2/MRl2g2csNlzBhJP_aHLan1yjKtJZvfQbURnwuNQ4czQ/116/image.jpg" alt="51 Clapham High Street interior" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <p class="muted" style="font-size:11px;color:var(--text-faint);margin-top:8px">Imagery: marketing photographs (LoopNet) · 10 of 12 analysed by the image pipeline.</p>
+                <div class="cover-meta">
+                    <div class="tile">
+                        <div class="v">£3,750,000</div>
+                        <div class="l">Guide Price (asking)</div>
+                        <div class="s">Declared · LoopNet</div>
+                    </div>
+                    <div class="tile">
+                        <div class="v">6,858 sq ft</div>
+                        <div class="l">Building Area (NIA)</div>
+                        <div class="s">Declared · marketing</div>
+                    </div>
+                    <div class="tile">
+                        <div class="v">7.5%</div>
+                        <div class="l">Adopted ARY</div>
+                        <div class="s">Modelled</div>
+                    </div>
+                    <div class="tile">
+                        <div class="v">Vacant</div>
+                        <div class="l">Occupancy</div>
+                        <div class="s">Lease expired Jul 2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="wrap">
+
+            <!-- CONTENTS -->
+            <section class="page" id="contents">
+                <div class="sec-kicker">Navigation</div>
+                <div class="sec-title">Contents</div>
+                <ul class="toc">
+                    <li>
+                        <div class="t">Executive Summary</div>
+                        <div class="d">Provenance legend · investment summary · property facts · headline values · local market trends</div>
+                    </li>
+                    <li>
+                        <div class="t">Key Risks</div>
+                        <div class="d">Prioritised risk register — vacancy, charge, pricing gap, measurement</div>
+                    </li>
+                    <li>
+                        <div class="t">Lender Considerations</div>
+                        <div class="d">LTV off as-is value only · advance range · lender action points</div>
+                    </li>
+                    <li>
+                        <div class="t">Comparables</div>
+                        <div class="d">ONS demographic twins · HMLR verified sales · LoopNet asking sales &amp; rents · £/sq ft charts</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 1 · Terms of Reference</div>
+                        <div class="d">Instruction · RICS standards · Market Value &amp; Market Rent definitions · special assumptions</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 2 · Location &amp; Description</div>
+                        <div class="d">Location · building · accommodation · EPC &amp; MEES size-benchmark</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 3 · Title, Tenure &amp; Tenancies</div>
+                        <div class="d">HMLR Title LN235080 · freeholder · charge · expired lease</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 4 · Statutory &amp; Legal</div>
+                        <div class="d">Business rates (VOA) · planning · fire · equality · safety</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 5 · Environmental</div>
+                        <div class="d">Flood · subsidence · radon · contamination checklist (sourced / not assessed)</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 6 · Market Commentary</div>
+                        <div class="d">Macro · micro (Clapham/SW4) · SWOT · marketing period</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 7 · Valuation Opinion</div>
+                        <div class="d">Market Rent · ARY · MV · sensitivity · cross-checks · adopted value</div>
+                    </li>
+                    <li>
+                        <div class="t">Section 8 · Suitability &amp; Conclusion</div>
+                        <div class="d">Lending suitability · reinstatement (caveated) · conclusion · sign-off</div>
+                    </li>
+                    <li>
+                        <div class="t">Data Sources &amp; Methodology</div>
+                        <div class="d">Every fact grouped by provenance class</div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- EXECUTIVE SUMMARY -->
+            <section class="page" id="exec">
+                <div class="sec-kicker">Executive Summary</div>
+                <div class="sec-title">Investment Summary</div>
+
+                <div class="card">
+                    <div class="ct">Reading Provenance — Trust Taxonomy</div>
+                    <p style="margin-top:4px">Every material figure in this report carries a provenance class so a reviewer can weigh it without re-deriving the data:</p>
+                    <p style="margin:8px 0">
+                        <span class="badge badge-success">Confirmed</span>
+                         primary register (HMLR, VOA, EPC, ONS) &nbsp;
+                                
+                        <span class="badge badge-warning">Declared</span>
+                         agent / brochure / marketing &nbsp;
+                                
+                        <span class="badge badge-modelled">Modelled</span>
+                         computed via a published method &nbsp;
+                                
+                        <span class="badge badge-inferred">Inferred</span>
+                         AI from photos / partial data (hedged) &nbsp;
+                                
+                        <span class="badge badge-danger">Flag</span>
+                         anomaly surfaced for review
+                              
+                    </p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Position</th>
+                        <th>Source</th>
+                    </tr>
+                    <tr>
+                        <td>Asset</td>
+                        <td>Freehold office building (former GP surgery / D1), Clapham High Street pitch; 6,858 sq ft NIA over ground + upper floors</td>
+                        <td>
+                            <span class="badge badge-warning">Declared · marketing</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Registered owner</td>
+                        <td>Westgold Holdings SPV1 Limited (Co. 14491394), an SPV — registered proprietor since 10 Jan 2023</td>
+                        <td>
+                            <span class="badge badge-success">Confirmed · HMLR Title LN235080</span>
+                        </td>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>Charges / lending</td>
+                        <td>
+                            Debenture dated 22 Dec 2022 in favour of 
+                            <strong>Mikhail Lebedev</strong>
+                             — a private individual resident in Berlin, Germany — with a further-advances obligation and a disposal restriction. Unusual financing structure (private overseas lender, not an institution).
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Confirmed · HMLR</span>
+                            <span class="badge badge-danger">Flag</span>
+                        </td>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>Income</td>
+                        <td>
+                            The occupational lease to Matrix Apa (UK) Ltd (10 years from 16 Jul 2013) 
+                            <strong>expired in July 2023</strong>
+                            . The building is therefore valued vacant; income is not currently in place and must be verified.
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Confirmed · HMLR</span>
+                            <span class="badge badge-danger">Flag</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pricing</td>
+                        <td>Guide £3,750,000 (openly marketed). Last sold £2,892,000 exclusive of VAT, completed 22 Dec 2022 (then income-producing).</td>
+                        <td>
+                            <span class="badge badge-warning">Declared · LoopNet</span>
+                             / 
+                            <span class="badge badge-success">Confirmed · HMLR</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Income &amp; yield</td>
+                        <td>Estimated Market Rent ~£205,000 p.a. (£30/sq ft blended); capitalised at an adopted All Risks Yield of 7.5% (range 7.0–8.0%).</td>
+                        <td>
+                            <span class="badge badge-modelled">Modelled</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Investment stance</td>
+                        <td>Higher-risk value-add. Indicative MV (vacant, as-is) £2,650,000 — well below the £3.75m guide. Suitable for repositioning buyers; the existing private-lender charge and vacancy gate any conventional facility.</td>
+                        <td>
+                            <span class="badge badge-modelled">Modelled</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>Property at a glance</h3>
+                <div class="facts">
+                    <div class="fr">
+                        <span class="k">Address</span>
+                        <span class="v">51 Clapham High Street, SW4 7TL</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">UPRN</span>
+                        <span class="v">200000458469</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Property type</span>
+                        <span class="v">Office (former GP surgery / D1)</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Tenure</span>
+                        <span class="v">Freehold · Title absolute</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Built area (NIA)</span>
+                        <span class="v">6,858 sq ft · EPC GIA 673 m²</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Title number</span>
+                        <span class="v">LN235080</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">EPC rating</span>
+                        <span class="v">C (current) · MEES: compliant</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Rateable value 2026</span>
+                        <span class="v">£122,000</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Occupancy</span>
+                        <span class="v">Vacant — lease expired Jul 2023 (verify)</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Last sale</span>
+                        <span class="v">£2,892,000 · Dec 2022</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Guide price</span>
+                        <span class="v">£3,750,000 (asking)</span>
+                    </div>
+                    <div class="fr">
+                        <span class="k">Local authority</span>
+                        <span class="v">Lambeth · MSOA Lambeth 015</span>
+                    </div>
+                </div>
+
+                <h3>Headline figures</h3>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="v">£2,650,000</div>
+                        <div class="l">Indicative MV — vacant (as-is)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="v">£205,000</div>
+                        <div class="l">Estimated Market Rent p.a.</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="v">£122,000</div>
+                        <div class="l">Rateable Value 2026</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="v">£2.0–2.4m</div>
+                        <div class="l">Reinstatement (indicative)</div>
+                    </div>
+                </div>
+
+                <h3>Valuation Summary</h3>
+                <table>
+                    <tr>
+                        <th>Basis</th>
+                        <th>Figure</th>
+                        <th>Class</th>
+                    </tr>
+                    <tr class="table-accent">
+                        <td>Market Value — current vacant-possession basis (as-is)</td>
+                        <td>£2,650,000</td>
+                        <td>
+                            <span class="badge badge-modelled">Modelled</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MV with Special Assumption of exchange within 90 days</td>
+                        <td>£2,400,000</td>
+                        <td>
+                            <span class="badge badge-modelled">Modelled</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MV with Special Assumption of exchange within 180 days</td>
+                        <td>£2,520,000</td>
+                        <td>
+                            <span class="badge badge-modelled">Modelled</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Last transaction (Dec 2022, then let)</td>
+                        <td>£2,892,000</td>
+                        <td>
+                            <span class="badge badge-success">Confirmed</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Guide price (reference only — not the recommended lending basis)</td>
+                        <td>£3,750,000</td>
+                        <td>
+                            <span class="badge badge-warning">Declared</span>
+                        </td>
+                    </tr>
+                </table>
+                <p class="muted">
+                    Estimated sales period: 
+                    <strong>9–12 months</strong>
+                     for a vacant building requiring re-letting; estimated letting period (to a new occupier): 
+                    <strong>6–9 months</strong>
+                    . 
+                    <span class="badge badge-modelled">Modelled</span>
+                </p>
+
+                <h3>Local Market Trends Snapshot</h3>
+                <table>
+                    <tr>
+                        <th>Indicator</th>
+                        <th>Reading</th>
+                        <th>Basis</th>
+                    </tr>
+                    <tr>
+                        <td>Occupier (tenant) demand — offices</td>
+                        <td>Stable / cautious</td>
+                        <td>RICS UK Commercial Market Survey trend</td>
+                    </tr>
+                    <tr>
+                        <td>Investor (purchaser) demand</td>
+                        <td>Subdued — secondary London offices</td>
+                        <td>RICS / sector commentary</td>
+                    </tr>
+                    <tr>
+                        <td>Supply to let (SW4/SW9)</td>
+                        <td>Ample — 32 SW4 / 21 SW9 listings to rent</td>
+                        <td>
+                            <span class="badge badge-warning">Declared · LoopNet</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Supply to buy</td>
+                        <td>Limited at this lot size — 4 SW4 office sales</td>
+                        <td>
+                            <span class="badge badge-warning">Declared · LoopNet</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Transaction volume trend (SW4, all commercial)</td>
+                        <td>Down 19.7% YoY (trailing 12m)</td>
+                        <td>
+                            <span class="badge badge-modelled">Modelled · HMLR velocity</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Capital value trend</td>
+                        <td>Soft / flat for secondary stock</td>
+                        <td>Sector commentary</td>
+                    </tr>
+                    <tr>
+                        <td>Incentives</td>
+                        <td>Rent-frees prevalent on re-lettings</td>
+                        <td>Market norm</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- KEY RISKS -->
+            <section class="page" id="risks">
+                <div class="sec-kicker">Diligence</div>
+                <div class="sec-title">Key Risks — Register</div>
+                <table>
+                    <tr>
+                        <th>Priority</th>
+                        <th>Risk</th>
+                        <th>Commentary</th>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>High</td>
+                        <td>Vacant — income lapsed</td>
+                        <td>Occupational lease expired Jul 2023; valuation is vacant-possession. Re-letting risk and void costs apply. Confirm current physical occupation and any post-expiry holding-over or new lease.</td>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>High</td>
+                        <td>Charge to a private overseas individual</td>
+                        <td>Debenture to Mikhail Lebedev (Berlin) with further-advances obligation and disposal restriction. Quantum of debt undisclosed on the register; consent of the chargee required for any disposition. Lender DD essential.</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>Pricing gap</td>
+                        <td>Guide £3.75m is ~30–45% above an income-based valuation and ~30% above the Dec 2022 let-investment sale. Asking appears to reflect vacant-possession/hope value rather than investment value.</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>Measurement basis</td>
+                        <td>
+                            Marketing NIA 6,858 sq ft vs EPC GIA 673 m² (≈7,244 sq ft) — reconcile NIA/GIA before relying on £/sq ft. Survey/measured area required. 
+                            <span class="badge badge-danger">Flag</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>Condition unverified</td>
+                        <td>
+                            Image-AI assessment is 
+                            <em>"Adequate"</em>
+                             with 
+                            <em>"Low"</em>
+                             CapEx outlook — 
+                            <span class="badge badge-inferred">Inferred</span>
+                             from photographs only; a building survey is required to confirm.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Low</td>
+                        <td>EPC / MEES</td>
+                        <td>Band C (current) — MEES-compliant for letting now; watch proposed tightening to minimum B by 2030.</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- LENDER -->
+            <section class="page" id="lender">
+                <div class="sec-kicker">Security</div>
+                <div class="sec-title">Lender Considerations</div>
+                <p>
+                    All loan-to-value figures below are computed against the 
+                    <strong>Market Value, current vacant-possession basis (as-is)</strong>
+                     only. The guide price is shown elsewhere for reference and is 
+                    <em>not</em>
+                     a lending basis.
+                </p>
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Conservative (55% LTV)</th>
+                        <th>Standard (65% LTV)</th>
+                    </tr>
+                    <tr>
+                        <td>Basis — MV as-is (vacant)</td>
+                        <td>£2,650,000</td>
+                        <td>£2,650,000</td>
+                    </tr>
+                    <tr class="table-accent">
+                        <td>Indicative maximum advance</td>
+                        <td>£1,457,500</td>
+                        <td>£1,722,500</td>
+                    </tr>
+                    <tr>
+                        <td>Existing charge</td>
+                        <td colspan="2">Debenture to M. Lebedev (amount undisclosed) — must be redeemed/ranked; chargee consent required for disposition.</td>
+                    </tr>
+                </table>
+                <div class="card warn">
+                    <div class="ct">Lender action points</div>
+                    <p>1) Confirm current occupation / income and any new lease post Jul-2023 expiry. 2) Obtain the debenture deed to quantify existing debt and consent terms. 3) Commission a measured survey (reconcile NIA/GIA) and a building survey to verify the "Adequate" condition read. 4) Verify the guide vs an investment valuation before sizing any facility.</p>
+                </div>
+            </section>
+
+            <!-- COMPARABLES -->
+            <section class="page" id="comps">
+                <div class="sec-kicker">Evidence</div>
+                <div class="sec-title">Comparables Overview</div>
+
+                <div class="card">
+                    <div class="ct">Comparable methodology — ONS two-tier model</div>
+                    <p>
+                        Demographic comparators are derived from ONS Census 2021 (TS063 occupation, TS066 economic activity) at MSOA level, property-type weighted for Office use. 
+                        <strong>Tier 1</strong>
+                         = same local authority (Lambeth); 
+                        <strong>Tier 2</strong>
+                         = structurally similar MSOAs in other authorities. These establish 
+                        <em>demographic/demand context only</em>
+                         — they are not pricing evidence. Pricing evidence is taken from HMLR Price Paid (verified transactions) and LoopNet marketing (declared asking levels).
+                    </p>
+                </div>
+
+                <h3>Demographic comparators — subject MSOA Lambeth 015</h3>
+                <table>
+                    <tr>
+                        <th>Tier</th>
+                        <th>MSOA</th>
+                        <th>Authority</th>
+                        <th>Weighted distance</th>
+                        <th>Professional %</th>
+                    </tr>
+                    <tr>
+                        <td>Tier 1 (local)</td>
+                        <td>Lambeth 019</td>
+                        <td>Lambeth</td>
+                        <td>0.018</td>
+                        <td>38.6%</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 1 (local)</td>
+                        <td>Lambeth 023</td>
+                        <td>Lambeth</td>
+                        <td>0.031</td>
+                        <td>37.2%</td>
+                    </tr>
+                    <tr class="table-accent">
+                        <td>Tier 2 (structural)</td>
+                        <td>Greenwich 039</td>
+                        <td>Greenwich</td>
+                        <td>0.008</td>
+                        <td>38.1%</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 2 (structural)</td>
+                        <td>Wandsworth 026</td>
+                        <td>Wandsworth</td>
+                        <td>0.014</td>
+                        <td>38.7%</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 2 (structural)</td>
+                        <td>Salford 037</td>
+                        <td>Salford</td>
+                        <td>0.022</td>
+                        <td>36.9%</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 2 (structural)</td>
+                        <td>Hackney 030</td>
+                        <td>Hackney</td>
+                        <td>0.023</td>
+                        <td>36.4%</td>
+                    </tr>
+                </table>
+                <p class="muted">
+                    Greenwich 039 is the tightest demographic twin; Salford 037 demonstrates national structural matching (demand read-across, not pricing). 
+                    <span class="badge badge-modelled">Modelled · ONS</span>
+                </p>
+
+                <h3>Sales evidence — verified transactions (HMLR Price Paid, type O commercial)</h3>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Date</th>
+                        <th>Price</th>
+                        <th>£/sq ft*</th>
+                        <th>Note</th>
+                    </tr>
+                    <tr>
+                        <td>47 Clapham High St (adjoining)</td>
+                        <td>Apr 2023</td>
+                        <td>£3,650,000</td>
+                        <td>—</td>
+                        <td>Larger / next-door</td>
+                    </tr>
+                    <tr class="table-accent">
+                        <td>51 Clapham High St (subject)</td>
+                        <td>Dec 2022</td>
+                        <td>£2,892,000</td>
+                        <td>£422</td>
+                        <td>Then let to Matrix Apa</td>
+                    </tr>
+                    <tr>
+                        <td>101 Bedford Rd, SW4 7RA</td>
+                        <td>Oct 2025</td>
+                        <td>£2,300,000</td>
+                        <td>—</td>
+                        <td>Freehold commercial</td>
+                    </tr>
+                    <tr>
+                        <td>3 Wardell Mews, SW4 0AR</td>
+                        <td>Aug 2025</td>
+                        <td>£2,075,000</td>
+                        <td>—</td>
+                        <td>Freehold commercial</td>
+                    </tr>
+                    <tr>
+                        <td>58 Clapham High St, SW4 7UL</td>
+                        <td>Nov 2024</td>
+                        <td>£535,000</td>
+                        <td>—</td>
+                        <td>Smaller high-street unit (£-tone)</td>
+                    </tr>
+                </table>
+                <p class="muted">
+                    SW4 commercial (type O): 159 transactions 2021–26 · median £535,000 · 90th percentile £2.95m. The subject sits in the district's top decile. *£/sq ft on 6,858 sq ft NIA. 
+                    <span class="badge badge-success">Confirmed · HMLR PPD</span>
+                </p>
+
+                <h3>Sales asking evidence — offices for sale (LoopNet snapshot, 4 of 4 SW4 listings)</h3>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Asking</th>
+                        <th>Size</th>
+                        <th>£/sq ft</th>
+                    </tr>
+                    <tr class="table-accent">
+                        <td>51 Clapham High St (subject)</td>
+                        <td>£3,750,000</td>
+                        <td>6,858 sq ft</td>
+                        <td>£547</td>
+                    </tr>
+                    <tr>
+                        <td>215 Lyham Rd, SW2 5PY (Built 1990)</td>
+                        <td>£1,500,000</td>
+                        <td>5,053 sq ft</td>
+                        <td>£297</td>
+                    </tr>
+                    <tr>
+                        <td>Mandeville Courtyard, 142 Battersea Park Rd, SW11</td>
+                        <td>£1,395,000</td>
+                        <td>Office unit</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>6 Tremadoc Rd, SW4 7NE</td>
+                        <td>Price on request</td>
+                        <td>Office unit</td>
+                        <td>—</td>
+                    </tr>
+                </table>
+                <p class="muted">
+                    The subject's £547/sq ft asking is ~84% above the only directly-sized office comp (215 Lyham Rd, £297/sq ft) — a material premium attributable in part to the High Street pitch but indicative of an optimistic ask. 
+                    <span class="badge badge-warning">Declared · LoopNet</span>
+                </p>
+
+                <h3>Rental evidence — offices to let (LoopNet, SW4 / SW8 / SW9, 10 of 53 listings shown)</h3>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Use</th>
+                        <th>Quoting rent</th>
+                    </tr>
+                    <tr>
+                        <td>Wingate Business Exchange, 63-67 Wingate Sq, SW4</td>
+                        <td>Office</td>
+                        <td>£45.00 /sq ft</td>
+                    </tr>
+                    <tr>
+                        <td>Piano House, 9 Brighton Ter, SW9</td>
+                        <td>Office</td>
+                        <td>£45.00 /sq ft</td>
+                    </tr>
+                    <tr>
+                        <td>Brixton House, 385 Coldharbour Ln, SW9</td>
+                        <td>Office</td>
+                        <td>£42.74 /sq ft</td>
+                    </tr>
+                    <tr>
+                        <td>1-1C Broughton St, SW8</td>
+                        <td>Office</td>
+                        <td>£29.50 /sq ft</td>
+                    </tr>
+                    <tr>
+                        <td>2 Tunstall Rd, SW9</td>
+                        <td>Office</td>
+                        <td>£30.00 /sq ft</td>
+                    </tr>
+                    <tr>
+                        <td>2-6 Atlantic Rd, SW9</td>
+                        <td>Office</td>
+                        <td>£22.50 /sq ft</td>
+                    </tr>
+                    <tr>
+                        <td>Brixton Plaza, 414 Brixton Rd, SW9 (large floors)</td>
+                        <td>Office</td>
+                        <td>£47.50 /sq ft</td>
+                    </tr>
+                </table>
+                <p class="muted">
+                    Office quoting rents bracket 
+                    <strong>£22.50–£47.50/sq ft</strong>
+                    : prime/refurbished ~£42–47, secondary ~£22–30. A blended 
+                    <strong>£30/sq ft</strong>
+                     is adopted for the subject as a Clapham High Street former-clinic office of "Adequate" declared condition — below prime new-build, above secondary Brixton. 
+                    <span class="badge badge-warning">Declared · LoopNet</span>
+                </p>
+
+                <div class="chart-wrap">
+                    <div class="ct">Capital value comparison — £ per sq ft</div>
+                    <svg viewBox="0 0 600 178" width="100%" height="178" font-family="Inter,sans-serif" role="img" aria-label="Capital value per square foot comparison">
+                        <defs>
+                            <linearGradient id="gbar" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#A88540"/>
+                                <stop offset="100%" stop-color="#D9B978"/>
+                            </linearGradient>
+                        </defs>
+                        <g font-size="12">
+                            <text x="0" y="22" fill="#283250">Subject — asking</text>
+                            <rect x="160" y="9" width="420" height="18" fill="#EFEADD"/>
+                            <rect x="160" y="9" width="420" height="18" fill="url(#gbar)"/>
+                            <text x="576" y="22" text-anchor="end" fill="#16203A" font-weight="700">£547</text>
+                            <text x="0" y="62" fill="#283250">Subject — last sale (2022)</text>
+                            <rect x="160" y="49" width="420" height="18" fill="#EFEADD"/>
+                            <rect x="160" y="49" width="324" height="18" fill="url(#gbar)"/>
+                            <text x="490" y="62" fill="#16203A" font-weight="600">£422</text>
+                            <text x="0" y="102" fill="#283250">Indicative MV (modelled)</text>
+                            <rect x="160" y="89" width="420" height="18" fill="#EFEADD"/>
+                            <rect x="160" y="89" width="296" height="18" fill="#4A6A95"/>
+                            <text x="462" y="102" fill="#16203A" font-weight="600">£386</text>
+                            <text x="0" y="142" fill="#283250">215 Lyham Rd (office comp)</text>
+                            <rect x="160" y="129" width="420" height="18" fill="#EFEADD"/>
+                            <rect x="160" y="129" width="228" height="18" fill="url(#gbar)"/>
+                            <text x="394" y="142" fill="#16203A" font-weight="600">£297</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="chart-wrap">
+                    <div class="ct">Office quoting rent comparison — £ per sq ft p.a.</div>
+                    <svg viewBox="0 0 600 250" width="100%" height="250" font-family="Inter,sans-serif" role="img" aria-label="Office quoting rent comparison">
+                        <g font-size="12">
+                            <text x="0" y="22" fill="#283250">Brixton Plaza (large)</text>
+                            <rect x="190" y="9" width="390" height="18" fill="#EFEADD"/>
+                            <rect x="190" y="9" width="371" height="18" fill="url(#gbar)"/>
+                            <text x="567" y="22" text-anchor="end" fill="#16203A" font-weight="600">£47.50</text>
+                            <text x="0" y="62" fill="#283250">Wingate Sq / Piano House</text>
+                            <rect x="190" y="49" width="390" height="18" fill="#EFEADD"/>
+                            <rect x="190" y="49" width="351" height="18" fill="url(#gbar)"/>
+                            <text x="547" y="62" fill="#16203A" font-weight="600">£45.00</text>
+                            <text x="0" y="102" fill="#283250">Brixton House</text>
+                            <rect x="190" y="89" width="390" height="18" fill="#EFEADD"/>
+                            <rect x="190" y="89" width="333" height="18" fill="url(#gbar)"/>
+                            <text x="529" y="102" fill="#16203A" font-weight="600">£42.74</text>
+                            <text x="0" y="142" fill="#283250">Adopted — subject (modelled)</text>
+                            <rect x="190" y="129" width="390" height="18" fill="#EFEADD"/>
+                            <rect x="190" y="129" width="234" height="18" fill="#4A6A95"/>
+                            <text x="430" y="142" fill="#16203A" font-weight="700">£30.00</text>
+                            <text x="0" y="182" fill="#283250">2 Tunstall Rd</text>
+                            <rect x="190" y="169" width="390" height="18" fill="#EFEADD"/>
+                            <rect x="190" y="169" width="234" height="18" fill="url(#gbar)"/>
+                            <text x="430" y="182" fill="#16203A" font-weight="600">£30.00</text>
+                            <text x="0" y="222" fill="#283250">2-6 Atlantic Rd (secondary)</text>
+                            <rect x="190" y="209" width="390" height="18" fill="#EFEADD"/>
+                            <rect x="190" y="209" width="176" height="18" fill="url(#gbar)"/>
+                            <text x="372" y="222" fill="#16203A" font-weight="600">£22.50</text>
+                        </g>
+                    </svg>
+                </div>
+                <p class="muted">Gold = comparable evidence; blue = SmartSource modelled position. Adopted rent (£30) sits mid-range — above secondary Brixton, below prime refurbished space.</p>
+            </section>
+
+            <!-- SECTION 1 -->
+            <section class="page" id="sec1">
+                <div class="sec-kicker">Section 1</div>
+                <div class="sec-title">Terms of Reference</div>
+                <h4>Instruction</h4>
+                <p>
+                    SmartSource has prepared this Desktop Investment Analysis for 
+                    <strong>51 Clapham High Street, London SW4 7TL</strong>
+                     as a decision-support tool for investors and lenders evaluating the freehold opportunity. The analysis is prepared in alignment with the RICS Valuation – Global Standards effective 31 January 2025 (the Red Book) and the RICS Valuation – Global Standards: UK National Supplement, but is 
+                    <strong>not a formal RICS Red Book valuation</strong>
+                    . It has not been prepared or signed by an RICS Registered Valuer. A formal Red Book valuation would require a panel valuer to inspect, review and sign this document.
+                </p>
+
+                <h4>Type and Purpose of Valuation</h4>
+                <p>
+                    The property forming the subject of analysis comprises a 
+                    <strong>vacant office building (former GP surgery / D1)</strong>
+                     at 51 Clapham High Street, on the Clapham High Street commercial pitch. The freehold interest is registered under HMLR title 
+                    <strong>LN235080</strong>
+                     and is openly marketed for sale. The analysis is required for secured-lending / acquisition decision support.
+                </p>
+
+                <h4>Extent of Inspection</h4>
+                <p>No physical inspection has been undertaken. Property characteristics are sourced from: the LoopNet sale listing (asking £3,750,000, scraped June 2026); the MHCLG / HMLR non-domestic EPC Register (LMK key 6229-8066-1932-1051-5663, inspected 26 August 2022); the HM Land Registry Title Register for title LN235080 (freehold, Title absolute); HM Land Registry Price Paid Data (Category B commercial); OS / ONS UPRN data (UPRN 200000458469); ONS Census 2021 (TS063 / TS066); the VOA 2026 rating list; and twelve LoopNet marketing photographs (ten analysed successfully by GPT-4o, two failed). A panel valuer should undertake a physical inspection before formal sign-off.</p>
+
+                <h4>Date of Valuation</h4>
+                <p>
+                    Date of analysis: 
+                    <strong>25 June 2026</strong>
+                    . Date of underlying data collection: June 2026. EPC inspection date: 26 August 2022 (HMLR / MHCLG EPC Register). Indicative figures carry a 90-day validity window subject to market movement.
+                </p>
+
+                <h4>RICS Valuation Standards</h4>
+                <p>
+                    The analysis adopts the methodology of the RICS Valuation – Global Standards effective 31 January 2025 (the Red Book), incorporating the International Valuation Standards, and the RICS – Global Standards: UK National Supplement. 
+                    <strong>Trust-class architecture:</strong>
+                     every key figure is tagged with its provenance class (CONFIRMED / DECLARED / MODELLED / INFERRED / FLAG) and cited to its underlying authoritative source. This makes the analysis directly accessible to an RICS Registered Valuer to support efficient review and sign-off.
+                </p>
+
+                <h4>Conflict of Interest</h4>
+                <p>
+                    SmartSource confirms there are no conflicts of interest in the preparation of this analysis. SmartSource has no connection with the registered proprietor / seller (
+                    <strong>Westgold Holdings SPV1 Limited</strong>
+                    , Co. Reg. 14491394), the seller's marketing agent, the holder of the existing registered charge (
+                    <strong>Mikhail Lebedev</strong>
+                    , per the debenture dated 22 December 2022), or any party that might benefit from a particular valuation outcome.
+                </p>
+
+                <h4>Valuer Competence Statement</h4>
+                <p>SmartSource is not an RICS Registered Valuer and this analysis is not provided in that capacity. The engine applies RICS-aligned methodology (Income Approach via Market Rent ÷ All Risks Yield on an overall £/sq ft basis for office use; BCIS-indicative reinstatement; Comparable-method calibration) and surfaces its data provenance transparently. For formal sign-off, an MRICS Registered Valuer with relevant local-market knowledge and current PI cover would review this document and either accept it as substantive evidence or substitute their own opinion.</p>
+
+                <h4>Basis of Valuation</h4>
+                <p class="muted">
+                    <strong>Market Value</strong>
+                     is defined as: "the estimated amount for which an asset or liability should exchange on the valuation date between a willing buyer and a willing seller in an arm's length transaction, after proper marketing and where the parties had each acted knowledgeably, prudently and without compulsion."
+                </p>
+                <p class="muted">
+                    <strong>Market Rent</strong>
+                     is defined as: "the estimated amount for which an interest in real property should be leased on the valuation date between a willing lessor and a willing lessee on appropriate lease terms in an arm's length transaction, after proper marketing and where the parties had each acted knowledgeably, prudently and without compulsion."
+                </p>
+
+                <h4>Special Assumption Valuations</h4>
+                <p>A Special Assumption is one that either assumes facts that differ from the actual facts existing at the valuation date, or that would not be made by a typical market participant in a transaction on the valuation date. This analysis adopts two:</p>
+                <ul style="margin:8px 0 8px 20px;color:#283250;font-size:13.5px">
+                    <li>
+                        Special Assumption of 
+                        <strong>Exchange of Contracts within 180 days</strong>
+                         (forced-sale stress test);
+                    </li>
+                    <li>
+                        Special Assumption of 
+                        <strong>Exchange of Contracts within 90 days</strong>
+                         (deep-distress stress test).
+                    </li>
+                </ul>
+                <p>
+                    <strong>Vacant possession is not treated as a Special Assumption</strong>
+                     — the building is factually vacant following expiry of the Matrix Apa (UK) Ltd lease in July 2023, so this reflects the actual position at the valuation date rather than an assumed one.
+                </p>
+
+                <h4>Currency &amp; Code of Measuring Practice</h4>
+                <p>Property values are reported in Pounds Sterling. Floor areas are taken from the LoopNet marketing material and stated on a Net Internal Area (NIA) basis (6,858 sq ft). They have not been independently verified against the RICS Code of Measuring Practice (6th ed., Part 3 of RICS property measurement, 1st ed. May 2015), and the marketing NIA differs from the EPC GIA of 673 m² (≈7,244 sq ft); a panel valuer should verify and reconcile these figures on inspection.</p>
+
+                <h4>VAT &amp; Purchaser's Costs Treatment</h4>
+                <p>The capital and rental figures are stated net of Value Added Tax at the prevailing rate; the December 2022 transaction was recorded as exclusive of VAT and the asset may be elected for VAT (to confirm). The Market Value in the valuation conclusion is the gross figure before deduction of purchaser's costs; the net-to-purchaser position factors Stamp Duty Land Tax (commercial bands) and legal/professional fees at 1.80%, and is shown in Section 7.</p>
+
+                <h4>Nature and Source of Information Relied Upon</h4>
+                <p>A full Data Sources &amp; Methodology appendix is provided at the end of this report, with every fact tagged to its underlying authoritative source. No reliance has been placed on undisclosed information; all data is independently verifiable through the cited registers.</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section class="page" id="sec2">
+                <div class="sec-kicker">Section 2</div>
+                <div class="sec-title">Location &amp; Property Description</div>
+                <p>
+                    <strong>Location.</strong>
+                     51 Clapham High Street, London SW4 7TL — a prominent commercial pitch on Clapham High Street, London Borough of Lambeth. Clapham High Street rail/Underground (Northern line, Clapham Common/North) is c. 200m away; the parade is a busy mixed retail/leisure/office high street. MSOA Lambeth 015; LSOA E01003054; LAD Lambeth (E09000022). 
+                    <span class="badge badge-success">Confirmed · ONSPD</span>
+                </p>
+                <p>
+                    <strong>Building &amp; accommodation.</strong>
+                     Ground floor with ancillary upper accommodation; historically a primary-health-care building (D1, GP surgery/clinic), now configured and marketed as offices ("Offices and Workshop Businesses" on the current EPC). Declared NIA 6,858 sq ft. 
+                    <span class="badge badge-warning">Declared</span>
+                </p>
+                <p>
+                    <strong>Tenure.</strong>
+                     Freehold (see Section 3). 
+                    <strong>Services.</strong>
+                     Mains gas, electricity, water, drainage assumed connected (typical for the parade); not verified.
+                </p>
+                <h3>Building condition &amp; energy</h3>
+                <p>
+                    Image-AI condition read: 
+                    <strong>"Adequate"</strong>
+                    , CapEx outlook 
+                    <strong>"Low"</strong>
+                    , lettability 
+                    <strong>"Good"</strong>
+                     — 
+                    <span class="badge badge-inferred">Inferred</span>
+                     from marketing photographs only; a building survey is required to confirm.
+                </p>
+                <h3>EPC &amp; MEES benchmark</h3>
+                <table>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Asset rating</td>
+                        <td>
+                            <strong>Band C</strong>
+                             (certificate 6229-8066-1932-1051-5663)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Inspection date</td>
+                        <td>26 Aug 2022 (3.8 yrs; not stale)</td>
+                    </tr>
+                    <tr>
+                        <td>Floor area (EPC, GIA)</td>
+                        <td>673 m² (≈7,244 sq ft)</td>
+                    </tr>
+                    <tr>
+                        <td>Match quality</td>
+                        <td>
+                            UPRN-exact, confidence 100 
+                            <span class="badge badge-success">Confirmed · MHCLG EPC</span>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>Benchmark.</strong>
+                     Among similar-size (500–900 m²) non-domestic properties in London SW, the band distribution is B 24.8%, 
+                    <strong>C 31.1% (modal)</strong>
+                    , D 22.3%, E 10.9%. Band C is the 
+                    <strong>median rating</strong>
+                     — typical for its size and area, two bands above the MEES minimum (E), so lettable now and MEES-compliant. Watch item: proposed tightening of the commercial MEES minimum to B by 2030, which Band C would not currently meet. 
+                    <span class="badge badge-success">Confirmed · EPC register</span>
+                </p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section class="page" id="sec3">
+                <div class="sec-kicker">Section 3</div>
+                <div class="sec-title">Title, Tenure &amp; Tenancies</div>
+                <p>
+                    Source: HM Land Registry official title register, title number 
+                    <strong>LN235080</strong>
+                     (freehold), class of title 
+                    <strong>Title absolute</strong>
+                    ; first registered 11 Nov 1963. 
+                    <span class="badge badge-success">Confirmed · HMLR Title Register</span>
+                </p>
+                <table>
+                    <tr>
+                        <th>Register</th>
+                        <th>Entry</th>
+                    </tr>
+                    <tr>
+                        <td>Proprietor (B)</td>
+                        <td>Westgold Holdings SPV1 Limited (Co. Regn. 14491394), Elthorne Gate, 64 High Street, Pinner HA5 5QA — registered 10 Jan 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Consideration (B)</td>
+                        <td>£2,892,000 exclusive of VAT, stated paid 22 Dec 2022</td>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>Restriction (B)</td>
+                        <td>No disposition without written consent of the proprietor of the Charge dated 22 Dec 2022 (Mikhail Lebedev)</td>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>Charge (C)</td>
+                        <td>
+                            Registered Charge in a Debenture dated 22 Dec 2022; proprietor of charge 
+                            <strong>Mikhail Lebedev</strong>
+                            , 18 Ballenstedter Str, Charlottenburg-Wilmersdorf, 10709 Berlin, Germany; obligation to make further advances (s.49(3) LRA 2002)
+                        </td>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>Lease (C)</td>
+                        <td>
+                            Lease dated 16 Jul 2013 to 
+                            <strong>Matrix Apa (UK) Ltd</strong>
+                             (original lessee Carousel Holdings Ltd), term 10 years — 
+                            <strong>expired 15 Jul 2023</strong>
+                            ; varied by Deed of Variation 11 Jan 2018; lessee's title TGL391403
+                        </td>
+                    </tr>
+                </table>
+                <h3>Tenancy &amp; covenant</h3>
+                <p>
+                    No current tenancy is recorded in our data (
+                    <span class="badge badge-modelled">Modelled</span>
+                     occupancy: vacant). The last registered lease has expired; any continued occupation, holding-over or new lease must be verified directly. Until verified, the asset is analysed on a vacant-possession basis.
+                </p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section class="page" id="sec4">
+                <div class="sec-kicker">Section 4</div>
+                <div class="sec-title">Statutory &amp; Legal Matters</div>
+                <h3>Business rates (VOA 2026 rating list)</h3>
+                <table>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Description / SCAT</td>
+                        <td>Offices and Premises (CO)</td>
+                    </tr>
+                    <tr>
+                        <td>UARN</td>
+                        <td>153402075</td>
+                    </tr>
+                    <tr>
+                        <td>Rateable Value 2026</td>
+                        <td>
+                            <strong>£122,000</strong>
+                             (effective 1 Apr 2026)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rateable Value 2023</td>
+                        <td>£106,000 — a +15% revaluation increase</td>
+                    </tr>
+                </table>
+                <p class="muted">
+                    <span class="badge badge-success">Confirmed · VOA</span>
+                     RV implies ~£17.8/sq ft on declared NIA — consistent with the AVD-2021 office tone for the pitch.
+                </p>
+                <h3>Planning, fire, equality &amp; safety</h3>
+                <p>
+                    Town planning history not assessed in this desktop (no planning feed loaded — 
+                    <span class="badge badge-warning">not assessed</span>
+                    ). The following statutory matters are assumed compliant pending verification and are the responsibility of others: Fire Risk Assessment (Regulatory Reform (Fire Safety) Order 2005); Equality Act 2010 access; Defective Premises Act 1972; Health &amp; Safety at Work Act 1974; asbestos management (CAR 2012). VAT: assume the property may be elected for VAT — confirm. Use class: current lawful use (offices / former D1) to be confirmed against planning.
+                </p>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section class="page" id="sec5">
+                <div class="sec-kicker">Section 5</div>
+                <div class="sec-title">Environmental Issues</div>
+                <p class="muted">The heads below are presented as a checklist. Where a source has not been integrated into the SmartSource registers, the head is marked "not assessed" rather than asserted as clear. Aggregator-supplied readings are attributed and should be confirmed against primary environmental reports.</p>
+                <table>
+                    <tr>
+                        <th>Head</th>
+                        <th>Reading</th>
+                        <th>Source</th>
+                    </tr>
+                    <tr>
+                        <td>Flooding (rivers &amp; sea)</td>
+                        <td>Very low / no risk</td>
+                        <td>
+                            <span class="badge badge-warning">Aggregator · Chimnie</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Flooding (surface water)</td>
+                        <td>No risk recorded</td>
+                        <td>
+                            <span class="badge badge-warning">Aggregator · Chimnie</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Reservoir / coastal</td>
+                        <td>None; c. 38 km from coast</td>
+                        <td>
+                            <span class="badge badge-warning">Aggregator · Chimnie</span>
+                        </td>
+                    </tr>
+                    <tr class="flag-row">
+                        <td>Subsidence (clay shrink-swell)</td>
+                        <td>"Possible" 2030 / 2050, "Probable" 2080 (climate-adjusted)</td>
+                        <td>
+                            <span class="badge badge-warning">Aggregator · Chimnie</span>
+                            <span class="badge badge-danger">Flag</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Radon</td>
+                        <td>Class 1 (0–1%) — no protective measures indicated</td>
+                        <td>
+                            <span class="badge badge-warning">Aggregator · Chimnie</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Contaminated land / historic landfill</td>
+                        <td>
+                            Not flagged by aggregator; 
+                            <span class="badge badge-warning">not independently assessed</span>
+                        </td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>Coal mining</td>
+                        <td>Not in a coal reporting area</td>
+                        <td>
+                            <span class="badge badge-warning">Aggregator</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EPC / MEES</td>
+                        <td>Band C — compliant (see Section 2)</td>
+                        <td>
+                            <span class="badge badge-success">Confirmed</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Air quality / noise</td>
+                        <td>Road noise ~60 dB; urban NO₂/PM — typical inner-London high street</td>
+                        <td>
+                            <span class="badge badge-warning">Aggregator</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Asbestos, deleterious materials, knotweed, masts, archaeology</td>
+                        <td>
+                            <span class="badge badge-warning">Not assessed</span>
+                             — survey required
+                        </td>
+                        <td>—</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section class="page" id="sec6">
+                <div class="sec-kicker">Section 6</div>
+                <div class="sec-title">Market Commentary</div>
+                <p>
+                    <strong>Macro.</strong>
+                     The UK secondary office investment market remains subdued, with cautious investor demand and pricing under pressure outside prime, well-let stock (RICS UK Commercial Property Market Survey trend). Occupier demand for well-located, refurbished space is more resilient than for tired secondary stock.
+                </p>
+                <p>
+                    <strong>Micro — Clapham / SW4.</strong>
+                     Clapham High Street is an established, high-footfall mixed-use pitch with strong leisure and retail demand and limited purpose-built office supply. Office quoting rents in SW4/SW8/SW9 span £22.50–£47.50/sq ft (LoopNet); investment-grade sales at this lot size are thin (4 SW4 office sales). Transaction volume across all SW4 commercial is down 19.7% year-on-year on a trailing-12-month basis (HMLR velocity).
+                </p>
+                <h3>SWOT</h3>
+                <table>
+                    <tr>
+                        <th>Strengths</th>
+                        <th>Weaknesses</th>
+                    </tr>
+                    <tr>
+                        <td>Freehold, prominent High Street pitch; ~200m to rail/Underground; EPC C (compliant); strong micro-location demand</td>
+                        <td>Vacant (income lapsed); tired/secondary configuration (former clinic); measurement basis unreconciled; disposal restriction + private overseas charge</td>
+                    </tr>
+                    <tr>
+                        <th>Opportunities</th>
+                        <th>Threats</th>
+                    </tr>
+                    <tr>
+                        <td>Re-let as offices/medical/retail-adjacent; refurbishment to lift rent/EPC; potential change-of-use (STP)</td>
+                        <td>Soft secondary investment market; MEES tightening to B by 2030; void/holding costs during re-letting</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>Method of disposal &amp; marketing period.</strong>
+                     Private treaty recommended; estimated marketing period 
+                    <strong>9–12 months</strong>
+                     given vacant status and lot size.
+                </p>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section class="page" id="sec7">
+                <div class="sec-kicker">Section 7</div>
+                <div class="sec-title">Valuation Opinion</div>
+                <p>
+                    The asset is vacant, so the 
+                    <strong>Investment / Comparable method</strong>
+                     is adopted: an estimate of Market Rent is capitalised at an All Risks Yield (ARY) and cross-checked against capital-value comparables and the last transaction.
+                </p>
+                <h3>Step 1 — Market Rent</h3>
+                <table>
+                    <tr>
+                        <th>Input</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Net internal area (declared)</td>
+                        <td>6,858 sq ft</td>
+                    </tr>
+                    <tr>
+                        <td>Adopted office rent (blended secondary, Clapham pitch)</td>
+                        <td>£30.00 /sq ft</td>
+                    </tr>
+                    <tr class="table-accent">
+                        <td>Estimated Market Rent</td>
+                        <td>£205,740 p.a. (say £205,000)</td>
+                    </tr>
+                </table>
+                <h3>Step 2 — Capitalisation (All Risks Yield)</h3>
+                <table>
+                    <tr>
+                        <th>Input</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Adopted ARY</td>
+                        <td>7.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Years' Purchase (1 ÷ ARY)</td>
+                        <td>13.33</td>
+                    </tr>
+                    <tr>
+                        <td>Gross capital value (MR × YP)</td>
+                        <td>£2,743,000</td>
+                    </tr>
+                    <tr>
+                        <td>Adopted position within sensitivity range — reflecting purchaser's costs (≈6.8%: SDLT + 1.80%) and re-letting risk</td>
+                        <td>round down to £2.65m</td>
+                    </tr>
+                    <tr class="table-accent">
+                        <td>Market Value, vacant-possession (as-is)</td>
+                        <td>£2,650,000 (rounded)</td>
+                    </tr>
+                </table>
+                <h3>Step 3 — Sensitivity (Market Rent × ARY)</h3>
+                <div class="heat">
+                    <div class="hh">MR \ ARY</div>
+                    <div class="hh">7.0%</div>
+                    <div class="hh">7.5%</div>
+                    <div class="hh">8.0%</div>
+                    <div class="hh">£190k</div>
+                    <div>£2.71m</div>
+                    <div>£2.53m</div>
+                    <div>£2.38m</div>
+                    <div class="hh">£205k</div>
+                    <div>£2.93m</div>
+                    <div class="adopt">£2.73m</div>
+                    <div>£2.56m</div>
+                    <div class="hh">£220k</div>
+                    <div>£3.14m</div>
+                    <div>£2.93m</div>
+                    <div>£2.75m</div>
+                </div>
+                <p class="muted">Adopted cell highlighted (gross, before purchaser's-cost adjustment). Net adopted MV ≈ £2.65m.</p>
+                <h3>Cross-checks</h3>
+                <p>
+                    • 
+                    <strong>Capital comparables:</strong>
+                     215 Lyham Rd (office) £297/sq ft → 6,858 sq ft ≈ £2.04m; Clapham pitch premium supports the higher end. • 
+                    <strong>Last transaction:</strong>
+                     £2,892,000 Dec 2022 — but then income-producing; vacant today, so a discount to that figure is logical. • 
+                    <strong>Guide £3,750,000</strong>
+                     sits ~40% above the income approach and is treated as 
+                    <em>reference only</em>
+                    , reflecting vacant-possession/hope value rather than investment value.
+                </p>
+                <div class="card gold">
+                    <div class="ct">Adopted opinion</div>
+                    <p>
+                        <strong>Market Value, current vacant-possession basis (as-is): £2,650,000</strong>
+                        <span class="badge badge-modelled">Modelled</span>
+                        . Special-assumption disposal scenarios: 90-day £2,400,000; 180-day £2,520,000. These are indicative desktop figures requiring MRICS verification.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section class="page" id="sec8">
+                <div class="sec-kicker">Section 8</div>
+                <div class="sec-title">Suitability for Security &amp; Conclusion</div>
+                <table>
+                    <tr>
+                        <th>Test</th>
+                        <th>Assessment</th>
+                    </tr>
+                    <tr>
+                        <td>Suitability for loan security</td>
+                        <td>
+                            Suitable in principle as freehold with a marketable High Street pitch, 
+                            <em>subject to</em>
+                             resolving vacancy, the existing charge and condition verification.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lending basis</td>
+                        <td>MV as-is (vacant) £2,650,000; indicative advance £1.46m–£1.72m (55–65% LTV).</td>
+                    </tr>
+                    <tr>
+                        <td>Economic life</td>
+                        <td>Long — at least 25 years for the existing structure subject to ongoing maintenance.</td>
+                    </tr>
+                    <tr>
+                        <td>Void running costs</td>
+                        <td>Empty rates (after any relief), insurance, security and maintenance apply during the void — material given the ~£122k RV.</td>
+                    </tr>
+                </table>
+                <h3>Reinstatement (indicative)</h3>
+                <p>
+                    <strong>£2,000,000 – £2,400,000</strong>
+                     (rebuilding cost, GIA basis). 
+                    <span class="badge badge-modelled">Modelled · BCIS-indicative</span>
+                </p>
+                <div class="card warn">
+                    <div class="ct">Reinstatement caveat</div>
+                    <p>
+                        This reinstatement figure is an indicative desktop estimate derived from published BCIS-type build-cost ranges applied to the gross internal area; it is 
+                        <strong>not</strong>
+                         a formal reinstatement cost assessment. It excludes site-specific factors (access, party walls, listed/conservation constraints, demolition, professional fees and inflation) and must be updated at least annually and confirmed by a suitably qualified party before reliance for insurance purposes.
+                    </p>
+                </div>
+                <div class="card gold">
+                    <div class="ct">Valuation conclusion</div>
+                    <p>
+                        On a current vacant-possession (as-is) basis, the freehold is assessed at an indicative 
+                        <strong>£2,650,000</strong>
+                         — broadly consistent with the December 2022 transaction adjusted for the loss of income, and well below the £3,750,000 guide. The two principal swing factors are the 
+                        <strong>re-letting outcome</strong>
+                         (vacant since Jul 2023) and the 
+                        <strong>existing charge</strong>
+                         (private overseas debenture with further-advances and a disposal restriction).
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="ct">Limitation of liability &amp; sign-off</div>
+                    <p>This is a desktop analysis to support MRICS review, not a formal RICS Red Book valuation. No inspection has been undertaken and no MRICS signature is attached. Figures are indicative and must be independently verified. SmartSource accepts no liability for reliance placed on this report absent a signed valuer's opinion. Prepared by the SmartSource IQ pipeline, 25 June 2026.</p>
+                </div>
+            </section>
+
+            <!-- DATA SOURCES -->
+            <section class="page" id="sources">
+                <div class="sec-kicker">Appendix</div>
+                <div class="sec-title">Data Sources &amp; Methodology</div>
+                <table>
+                    <tr>
+                        <th>Class</th>
+                        <th>Facts &amp; source</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-success">Confirmed</span>
+                        </td>
+                        <td>Title, owner, charge, lease, last sale — HM Land Registry Title LN235080. RV — VOA 2026 rating list (UARN 153402075). EPC band C — MHCLG non-domestic EPC register (UPRN-exact). Geography — ONS Postcode Directory. Sales evidence — HMLR Price Paid.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-warning">Declared</span>
+                        </td>
+                        <td>Guide price £3,750,000, NIA 6,858 sq ft, tenure descriptor — LoopNet marketing. Asking rents — LoopNet listings.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-modelled">Modelled</span>
+                        </td>
+                        <td>Market Value, Market Rent, ARY, sensitivity, LTV, reinstatement, transaction velocity, demographic comparators (ONS TS063/TS066 two-tier method).</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-warning">Aggregator-routed</span>
+                        </td>
+                        <td>Flood, subsidence, radon, noise — Chimnie (underlying registers: EA, BGS GeoSure, UKHSA). To be confirmed against primary environmental reports.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-inferred">Inferred</span>
+                        </td>
+                        <td>Building condition "Adequate", CapEx "Low", lettability "Good" — AI image analysis of marketing photographs; hedged, survey required.</td>
+                    </tr>
+                </table>
+                <p class="muted">Freshness at generation: EPC, VOA, HMLR, demographics and brochure data all current (no stale material source; render gate passed). Report validity 90 days.</p>
+            </section>
+
+        </div>
+        <!-- /wrap -->
+
+        <div class="foot">
+            SmartSource IQ · Desktop Investment Analysis &amp; Valuation Support Report · Not a formal RICS Red Book valuation — MRICS sign-off pending · Generated 25 June 2026
+          </div>
+    </div>
+</body>
+</html>
