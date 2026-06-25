@@ -645,6 +645,105 @@
         border: 2px solid var(--gold)
     }
 
+    .dash {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin: 22px 0
+    }
+
+    .dash .panel {
+        border: 1px solid var(--border-color);
+        background: #FCFBF7;
+        padding: 18px 20px
+    }
+
+    .dash .panel .ct {
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 6px
+    }
+
+    .gauge-label {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        color: var(--gold);
+        text-align: center;
+        letter-spacing: 1px;
+        margin-top: 2px
+    }
+
+    .heatx {
+        display: grid;
+        grid-template-columns: 96px repeat(5, 1fr);
+        gap: 5px;
+        margin: 14px 0;
+        font-size: 12.5px
+    }
+
+    .heatx > div {
+        padding: 11px 6px;
+        text-align: center;
+        border-radius: 2px;
+        color: #283250
+    }
+
+    .heatx .hh {
+        background: transparent;
+        font-weight: 600;
+        color: var(--gold);
+        font-size: 10.5px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase
+    }
+
+    .heatx .rl {
+        background: transparent;
+        color: var(--text-muted);
+        font-weight: 600;
+        text-align: right;
+        padding-right: 10px
+    }
+
+    .tg2 {
+        background:#cfe6d8
+    }
+
+    .tg1 {
+        background:#e6f1ea
+    }
+
+    .tn {
+        background:#f5f0e3
+    }
+
+    .tr1 {
+        background:#f1e1dc
+    }
+
+    .tr2 {
+        background: #e8cfc9
+    }
+
+    .heatx .adoptx {
+        outline: 2px solid var(--gold);
+        font-weight: 700;
+        color: #16203A
+    }
+
+    @media (max-width: 1024px) {
+        .dash {
+            grid-template-columns:1fr
+        }
+
+        .heatx {
+            font-size: 10.5px
+        }
+    }
+
     @media (max-width: 1024px) {
         .sidebar {
             width: 0;
@@ -975,6 +1074,65 @@
                     <div class="kpi-card">
                         <div class="v">£2.0–2.4m</div>
                         <div class="l">Reinstatement (indicative)</div>
+                    </div>
+                </div>
+
+                <div class="dash">
+                    <div class="panel">
+                        <div class="ct">
+                            Overall Risk Rating 
+                            <span class="badge badge-modelled">Modelled</span>
+                        </div>
+                        <svg viewBox="0 0 240 150" width="100%" height="138" style="max-width:240px;display:block;margin:4px auto 0" role="img" aria-label="Risk gauge medium-high">
+                            <defs>
+                                <linearGradient id="riskGrad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#3F7E5E"/>
+                                    <stop offset="50%" stop-color="#A67B2E"/>
+                                    <stop offset="100%" stop-color="#94332B"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M 30 120 A 90 90 0 0 1 210 120" fill="none" stroke="url(#riskGrad)" stroke-width="16" stroke-linecap="round"/>
+                            <line x1="120" y1="120" x2="161" y2="40" stroke="#16203A" stroke-width="3"/>
+                            <circle cx="120" cy="120" r="6" fill="#16203A"/>
+                            <circle cx="161" cy="40" r="5" fill="#94332B"/>
+                            <text x="26" y="140" font-size="10" fill="#6A6A68">LOW</text>
+                            <text x="120" y="16" font-size="10" fill="#6A6A68" text-anchor="middle">MEDIUM</text>
+                            <text x="214" y="140" font-size="10" fill="#6A6A68" text-anchor="end">HIGH</text>
+                        </svg>
+                        <div class="gauge-label">MEDIUM-HIGH</div>
+                        <p class="muted" style="margin-top:8px">
+                            Composite reflects: vacant building (lease expired Jul 2023); a registered charge to a 
+                            <strong>private overseas individual</strong>
+                             requiring consent on disposal; condition inferred from photos only; and declining transaction volume (−19.7% YoY). Partly offset by freehold tenure, a prime High Street pitch and an EPC C (MEES-compliant) rating.
+                        </p>
+                    </div>
+                    <div class="panel">
+                        <div class="ct">SW4 Sales Velocity (district, calendar-year volume)</div>
+                        <svg viewBox="0 0 600 175" width="100%" height="158" role="img" aria-label="SW4 transaction volume 2021 to 2025">
+                            <defs>
+                                <linearGradient id="velGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#A88540" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="#A88540" stop-opacity="0.03"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M40,30 L170,66 L300,117 L430,94 L560,109 L560,145 L40,145 Z" fill="url(#velGrad)"/>
+                            <path d="M40,30 L170,66 L300,117 L430,94 L560,109" fill="none" stroke="#A88540" stroke-width="2.5"/>
+                            <circle cx="40" cy="30" r="4" fill="#A88540"/>
+                            <text x="40" y="22" font-size="11" fill="#16203A" font-weight="600">789</text>
+                            <circle cx="560" cy="109" r="4" fill="#94332B"/>
+                            <text x="560" y="101" font-size="11" fill="#16203A" font-weight="600" text-anchor="end">547</text>
+                            <text x="40" y="166" font-size="10" fill="#6A6A68">2021</text>
+                            <text x="300" y="166" font-size="10" fill="#6A6A68" text-anchor="middle">2023</text>
+                            <text x="560" y="166" font-size="10" fill="#6A6A68" text-anchor="end">2025</text>
+                        </svg>
+                        <p class="muted" style="margin-top:6px">
+                            ↓ 547 sales in 2025 (vs 592 in 2024). Trailing-12m volume 
+                            <strong>497 vs 619</strong>
+                             prior 12m = 
+                            <strong>−19.7% YoY</strong>
+                            . 
+                            <span class="badge badge-success">Confirmed · HMLR PPD · SW4 district</span>
+                        </p>
                     </div>
                 </div>
 
@@ -1893,26 +2051,55 @@
                         <td>£2,650,000 (rounded)</td>
                     </tr>
                 </table>
-                <h3>Step 3 — Sensitivity (Market Rent × ARY)</h3>
-                <div class="heat">
+                <h3>Step 3 — Yield Sensitivity Heatmap · Market Value (£000s)</h3>
+                <p class="muted">
+                    Columns = All Risks Yield → · rows = Market Rent ↑. Colours are 
+                    <strong>buyer-perspective</strong>
+                    : green = lower price (cheaper to acquire), red = higher. Gold-bordered cell = adopted (MR £205k ÷ ARY 7.5%).
+                </p>
+                <div class="heatx">
                     <div class="hh">MR \ ARY</div>
                     <div class="hh">7.0%</div>
+                    <div class="hh">7.25%</div>
                     <div class="hh">7.5%</div>
+                    <div class="hh">7.75%</div>
                     <div class="hh">8.0%</div>
-                    <div class="hh">£190k</div>
-                    <div>£2.71m</div>
-                    <div>£2.53m</div>
-                    <div>£2.38m</div>
-                    <div class="hh">£205k</div>
-                    <div>£2.93m</div>
-                    <div class="adopt">£2.73m</div>
-                    <div>£2.56m</div>
-                    <div class="hh">£220k</div>
-                    <div>£3.14m</div>
-                    <div>£2.93m</div>
-                    <div>£2.75m</div>
+                    <div class="rl">£185k</div>
+                    <div class="tn">£2,643</div>
+                    <div class="tg1">£2,552</div>
+                    <div class="tg2">£2,467</div>
+                    <div class="tg2">£2,387</div>
+                    <div class="tg2">£2,313</div>
+                    <div class="rl">£195k</div>
+                    <div class="tr1">£2,786</div>
+                    <div class="tn">£2,690</div>
+                    <div class="tg1">£2,600</div>
+                    <div class="tg1">£2,516</div>
+                    <div class="tg2">£2,438</div>
+                    <div class="rl">£205k</div>
+                    <div class="tr1">£2,929</div>
+                    <div class="tr1">£2,828</div>
+                    <div class="tn adoptx">£2,733</div>
+                    <div class="tn">£2,645</div>
+                    <div class="tg1">£2,563</div>
+                    <div class="rl">£215k</div>
+                    <div class="tr2">£3,071</div>
+                    <div class="tr2">£2,966</div>
+                    <div class="tr1">£2,867</div>
+                    <div class="tn">£2,774</div>
+                    <div class="tn">£2,688</div>
+                    <div class="rl">£225k</div>
+                    <div class="tr2">£3,214</div>
+                    <div class="tr2">£3,103</div>
+                    <div class="tr2">£3,000</div>
+                    <div class="tr1">£2,903</div>
+                    <div class="tr1">£2,813</div>
                 </div>
-                <p class="muted">Adopted cell highlighted (gross, before purchaser's-cost adjustment). Net adopted MV ≈ £2.65m.</p>
+                <p class="muted">
+                    Adopted gross MV ≈ £2.73m (MR £205k ÷ 7.5%); net adopted MV 
+                    <strong>£2.65m</strong>
+                     after purchaser's-cost positioning and re-letting risk. The envelope illustrates sensitivity only, not alternative adopted figures.
+                </p>
                 <h3>Cross-checks</h3>
                 <p>
                     • 
